@@ -1,0 +1,106 @@
+[
+  {
+    "city": "Delhi",
+    "temperature": 24.13,
+    "description": "moderate rain",
+    "humidity": 94,
+    "utc_timestamp": "2025-09-01T19:50:18.058574+00:00",
+    "local_timestamp": "2025-09-02T01:20:18.058574"
+  },
+  {
+    "city": "Ahmedabad",
+    "temperature": 26.79,
+    "description": "overcast clouds",
+    "humidity": 75,
+    "utc_timestamp": "2025-09-01T19:50:18.027172+00:00",
+    "local_timestamp": "2025-09-02T01:20:18.027172"
+  },
+  {
+    "city": "Rajasthan",
+    "temperature": 24.86,
+    "description": "overcast clouds",
+    "humidity": 83,
+    "utc_timestamp": "2025-09-01T19:51:47.855759+00:00",
+    "local_timestamp": "2025-09-02T01:21:47.855759"
+  },
+  {
+    "city": "Mumbai",
+    "temperature": 26.63,
+    "description": "scattered clouds",
+    "humidity": 85,
+    "utc_timestamp": "2025-09-01T19:51:47.855759+00:00",
+    "local_timestamp": "2025-09-02T01:21:47.855759"
+  },
+  {
+    "city": "Baroda",
+    "temperature": 18.7,
+    "description": "overcast clouds",
+    "humidity": 95,
+    "utc_timestamp": "2025-09-01T19:52:05.413137+00:00",
+    "local_timestamp": "2025-09-02T01:22:05.413137"
+  },
+  {
+    "city": "Chennai",
+    "temperature": 28.47,
+    "description": "overcast clouds",
+    "humidity": 66,
+    "utc_timestamp": "2025-09-01T19:52:05.413137+00:00",
+    "local_timestamp": "2025-09-02T01:22:05.413137"
+  },
+  {
+    "city": "Vapi",
+    "temperature": 25.54,
+    "description": "overcast clouds",
+    "humidity": 92,
+    "utc_timestamp": "2025-09-01T19:52:05.366096+00:00",
+    "local_timestamp": "2025-09-02T01:22:05.366096"
+  },
+  {
+    "city": "Surat",
+    "temperature": 26.03,
+    "description": "overcast clouds",
+    "humidity": 89,
+    "utc_timestamp": "2025-09-01T19:52:05.397512+00:00",
+    "local_timestamp": "2025-09-02T01:22:05.397512"
+  },
+  {
+    "city": "Dehradun",
+    "temperature": 20.41,
+    "description": "overcast clouds",
+    "humidity": 95,
+    "utc_timestamp": "2025-09-01T19:52:40.525332+00:00",
+    "local_timestamp": "2025-09-02T01:22:40.525332"
+  },
+  {
+    "city": "Pune",
+    "temperature": 22.31,
+    "description": "overcast clouds",
+    "humidity": 94,
+    "utc_timestamp": "2025-09-01T19:52:58.002299+00:00",
+    "local_timestamp": "2025-09-02T01:22:58.002299"
+  },
+  {
+    "city": "Udaipur",
+    "temperature": 23.04,
+    "description": "overcast clouds",
+    "humidity": 88,
+    "utc_timestamp": "2025-09-01T19:53:32.552516+00:00",
+    "local_timestamp": "2025-09-02T01:23:32.552516"
+  },
+  {
+    "city": "Kerala",
+    "temperature": 22.93,
+    "description": "overcast clouds",
+    "humidity": 97,
+    "utc_timestamp": "2025-09-01T19:54:12.527203+00:00",
+    "local_timestamp": "2025-09-02T01:24:12.527203"
+  },
+  {
+    "city": "Jaipur",
+    "temperature": 24.99,
+    "description": "overcast clouds",
+    "humidity": 86,
+    "utc_timestamp": "2025-09-01T20:29:08.189316+00:00",
+    "local_timestamp": "2025-09-02T01:59:08.189316"
+  }
+]
