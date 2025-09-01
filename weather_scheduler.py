@@ -12,6 +12,7 @@ from weather_logger import WeatherLogger
 
 class WeatherScheduler:
     def __init__(self, api_key: str, cities: List[str], interval_minutes: int = 1):
+        # Initialize WeatherScheduler with API key, list of cities, and fetch interval
         self.logger = WeatherLogger(api_key)
         self.cities = cities
         self.interval_minutes = interval_minutes
@@ -22,6 +23,7 @@ class WeatherScheduler:
         await self.logger.fetch_and_log_weather(self.cities, force_update=True)
     
     def start_scheduler(self):
+        # Start the scheduling loop and run the fetch task at defined intervals
         print("Starting weather scheduler...")
         print(f" Cities: {', '.join(self.cities)}")
         print(f" Interval: Every {self.interval_minutes} minutes")
@@ -42,6 +44,7 @@ class WeatherScheduler:
             self.is_running = False
     
     def stop_scheduler(self):
+        # Method to stop the scheduler manually if needed
         self.is_running = False
         print(" Scheduler stopped")
 
@@ -54,7 +57,7 @@ def main():
     parser.add_argument("--interval", type=int, default=1, help="Fetch interval in minutes (default: 1)")
     
     args = parser.parse_args()
-    
+    # Parse and clean city names into a list
     cities = [city.strip() for city in args.cities.split(",")]
     
     scheduler = WeatherScheduler(args.api_key, cities, args.interval)

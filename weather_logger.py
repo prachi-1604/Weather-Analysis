@@ -21,12 +21,16 @@ class WeatherLogger:
         self.base_url = "https://api.openweathermap.org/data/2.5/weather"
         self.data_file = data_file
         self.db_file = db_file
+        # Create directory to save plots if it doesn't exist
         self.plots_dir = Path("plots")
         self.plots_dir.mkdir(exist_ok=True)
-        
+        # Initialize SQLite database and create table if it doesn't exist
         self.init_database()
     
     def init_database(self):
+        """
+        Create SQLite database and weather_logs table if it doesn't exist.
+        """
         conn = sqlite3.connect(self.db_file)
         cursor = conn.cursor()
         cursor.execute('''
@@ -45,6 +49,10 @@ class WeatherLogger:
         conn.close()
     
     async def fetch_weather_data(self, session: aiohttp.ClientSession, city: str) -> Optional[Dict[str, Any]]:
+        """
+        Asynchronously fetch weather data for a given city from OpenWeatherMap API.
+        Returns a dictionary with relevant weather info or None if error occurs.
+        """
         try:
             params = {
                 'q': city,
@@ -71,6 +79,10 @@ class WeatherLogger:
             return None
     
     def is_duplicate_entry(self, city: str, data: List[Dict[str, Any]]) -> bool:
+        """
+        Checks if there is a recent (within 2 hours) entry for the city in the existing data.
+        Prevents redundant API calls for fresh data.
+        """
         if not data:
             return False
         
@@ -85,6 +97,10 @@ class WeatherLogger:
         return False
     
     async def fetch_and_log_weather(self, cities: List[str], force_update: bool = False) -> None:
+        """
+        Fetches weather data asynchronously for a list of cities and logs them to JSON.
+        Skips cities with recent data unless force_update=True.
+        """
         print(f"Fetching weather data for: {', '.join(cities)}")
         
         data = self.load_data()
@@ -113,6 +129,10 @@ class WeatherLogger:
                 print("No new data to fetch (all cities have recent entries)")
     
     def load_data(self) -> List[Dict[str, Any]]:
+        """
+        Loads weather data from the JSON file.
+        Returns an empty list if file doesn't exist or is corrupted.
+        """
         if os.path.exists(self.data_file):
             try:
                 with open(self.data_file, 'r') as f:
@@ -127,6 +147,10 @@ class WeatherLogger:
             json.dump(data, f, indent=2)
     
     def view_all_logs(self) -> None:
+        """
+        Displays the last 20 weather log entries in a formatted table using tabulate.
+        Shows city, temperature, description, humidity, and local timestamp.
+        """
         data = self.load_data()
         if not data:
             print("No weather data available.")
@@ -150,6 +174,10 @@ class WeatherLogger:
         print(f"\nTotal entries: {len(data)}")
     
     def get_city_averages(self) -> None:
+        """
+        Calculates and displays average temperature and count of data points per city.
+        Sorted by average temperature ascending.
+        """
         data = self.load_data()
         if not data:
             print("No weather data available.")
@@ -177,6 +205,9 @@ class WeatherLogger:
         print(tabulate(averages, headers=headers, tablefmt="grid"))
     
     def get_extremes(self) -> None:
+        """
+        Finds and displays hottest and coldest cities overall and in the last 24 hours.
+        """
         data = self.load_data()
         if not data:
             print("No weather data available.")
@@ -210,6 +241,10 @@ class WeatherLogger:
         print(f" Coldest city (last 24h): {coldest_24h[0]} ({coldest_24h[1]:.1f}°C)")
     
     def plot_temperature_trend(self, city: str) -> None:
+        """
+        Plots temperature trend over time for a specific city using matplotlib.
+        Saves plot to 'plots' directory and displays it.
+        """
         data = self.load_data()
         if not data:
             print("No weather data available.")
@@ -243,6 +278,10 @@ class WeatherLogger:
         print(f" Temperature trend plot saved as: {plot_filename}")
     
     def export_to_sqlite(self) -> None:
+        """
+        Exports all weather data from JSON file to SQLite database.
+        Uses INSERT OR IGNORE to prevent duplicate entries.
+        """
         data = self.load_data()
         if not data:
             print("No data to export.")
