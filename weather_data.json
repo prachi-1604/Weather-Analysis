@@ -102,5 +102,61 @@
     "humidity": 86,
     "utc_timestamp": "2025-09-01T20:29:08.189316+00:00",
     "local_timestamp": "2025-09-02T01:59:08.189316"
+  },
+  {
+    "city": "Ahmedabad",
+    "temperature": 33.48,
+    "description": "overcast clouds",
+    "humidity": 50,
+    "utc_timestamp": "2025-09-03T10:42:23.971368+00:00",
+    "local_timestamp": "2025-09-03T16:12:23.971368"
+  },
+  {
+    "city": "Baroda",
+    "temperature": 18.89,
+    "description": "overcast clouds",
+    "humidity": 96,
+    "utc_timestamp": "2025-09-03T10:51:03.651780+00:00",
+    "local_timestamp": "2025-09-03T16:21:03.651780"
+  },
+  {
+    "city": "Surat",
+    "temperature": 30.12,
+    "description": "overcast clouds",
+    "humidity": 66,
+    "utc_timestamp": "2025-09-03T10:53:12.853678+00:00",
+    "local_timestamp": "2025-09-03T16:23:12.853678"
+  },
+  {
+    "city": "Vapi",
+    "temperature": 28.51,
+    "description": "overcast clouds",
+    "humidity": 77,
+    "utc_timestamp": "2025-09-03T10:57:09.262913+00:00",
+    "local_timestamp": "2025-09-03T16:27:09.262913"
+  },
+  {
+    "city": "Navsari",
+    "temperature": 29.05,
+    "description": "overcast clouds",
+    "humidity": 72,
+    "utc_timestamp": "2025-09-03T10:59:33.277843+00:00",
+    "local_timestamp": "2025-09-03T16:29:33.277843"
+  },
+  {
+    "city": "Rajasthan",
+    "temperature": 27.06,
+    "description": "overcast clouds",
+    "humidity": 80,
+    "utc_timestamp": "2025-09-03T11:32:17.765375+00:00",
+    "local_timestamp": "2025-09-03T17:02:17.765375"
+  },
+  {
+    "city": "Ahmedabad",
+    "temperature": 24.86,
+    "description": "overcast clouds",
+    "humidity": 84,
+    "utc_timestamp": "2025-09-07T16:41:40.727266+00:00",
+    "local_timestamp": "2025-09-07T22:11:40.727266"
   }
 ]

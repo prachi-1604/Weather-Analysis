@@ -119,7 +119,8 @@ class WeatherLogger:
                 for result in results:
                     if isinstance(result, dict) and result:
                         data.append(result)
-                        print(f" Logged data for {result['city']}: {result['temperature']}°C, {result['description']}")
+                        print(f" Logged data for {result['city']}: {result['temperature']}°C, {result['description']}")                        
+                        self.view_all_logs(city=result['city'])
                     elif isinstance(result, Exception):
                         print(f"Error: {result}")
                 
@@ -146,7 +147,7 @@ class WeatherLogger:
         with open(self.data_file, 'w') as f:
             json.dump(data, f, indent=2)
     
-    def view_all_logs(self) -> None:
+    def view_all_logs(self, city=None) -> None:
         """
         Displays the last 20 weather log entries in a formatted table using tabulate.
         Shows city, temperature, description, humidity, and local timestamp.
@@ -158,13 +159,22 @@ class WeatherLogger:
         
         table_data = []
         for entry in data[-20:]:
-            table_data.append([
+            if city and entry['city'] == city:
+                table_data.append([
                 entry['city'],
                 f"{entry['temperature']:.1f}°C",
                 entry['description'],
                 f"{entry['humidity']}%",
                 datetime.fromisoformat(entry['local_timestamp']).strftime('%Y-%m-%d %H:%M')
             ])
+                   
+            # table_data.append([
+            #     entry['city'],
+            #     f"{entry['temperature']:.1f}°C",
+            #     entry['description'],
+            #     f"{entry['humidity']}%",
+            #     datetime.fromisoformat(entry['local_timestamp']).strftime('%Y-%m-%d %H:%M')
+            # ])
         
         headers = ["City", "Temperature", "Description", "Humidity", "Local Time"]
         print("\n" + "="*80)
